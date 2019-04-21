@@ -1,0 +1,23 @@
+{
+  "name": "default configuration",
+  "resolution": "848x480",
+  "screens": [
+    {
+      "id": "welcome",
+      "src": "welcome_screen.xjs"
+    },
+    {
+      "id": "moremoney",
+      "src": "moremoney_screen.xjs"
+    },
+    {
+      "id": "working",
+      "src": "working_screen.xjs"
+    },
+    {
+      "id": "thanks",
+      "src": "thanks_screen.xjs"
+    }
+  ],
+  "script": "script.lua"
+}
