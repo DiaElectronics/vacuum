@@ -1,0 +1,32 @@
+{
+  "name": "default configuration",
+  "resolution": "848x480",
+  "screens": [
+    {
+      "id": "welcome",
+      "src": "welcome_screen.xjs"
+    },
+    {
+      "id": "moremoney",
+      "src": "moremoney_screen.xjs"
+    },
+    {
+      "id": "working",
+      "src": "working_screen.xjs"
+    },
+    {
+      "id": "thanks",
+      "src": "thanks_screen.xjs"
+    }
+  ],
+  "buttons": 1,
+  "programs": [
+    {
+      "id": "run",
+      "src": "programs/run.json"
+    }
+  ],
+  "relays": 1,
+  "endpoint": "http://app.diae.ru/v0/gql/",
+  "script": "script.lua"
+}

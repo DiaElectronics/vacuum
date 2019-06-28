@@ -15,10 +15,12 @@ setup = function()
     balance = 0.0
     balance_int = 0
     mode = 1
-    -- -1 = all, 0 = off, so turn off all button lights
-    turn_light(-1, 0)
+    
+    -- this is about buttons
+    turn_light(1, animation.stop)
+    
     -- turn off all activators
-    turn_activator(-1, 0)
+    run_program(program.stop)
     printMessage("Vacuum Cleaner Sample v." .. version)
     return 0
 end
@@ -42,8 +44,8 @@ end
 
 welcome_mode = function()
     welcome:Display()
-    turn_light(1, 0)
-    turn_activator(1, 0)
+    turn_light(1, animation.stop)
+    run_program(program.stop)
 
     update_balance()
     if(balance > 0.99) then return 2 end
@@ -52,8 +54,8 @@ welcome_mode = function()
 end
 
 moremoney_mode = function()
-    turn_light(1, 1)
-    turn_activator(1, 0)
+    turn_light(1, animation.one_button)
+    run_program(program.stop)
 
     update_balance()
     balance_int = math.ceil(balance)
@@ -67,8 +69,8 @@ moremoney_mode = function()
 end
 
 working_mode = function()
-    turn_light(1, 1)
-    turn_activator(1, 1)
+    turn_light(1, animation.one_button)
+    run_program(program.run)
 
     update_balance()
     balance_int = math.ceil(balance)
@@ -86,8 +88,8 @@ end
 
 thanks_mode = function()
     thanks:Display()
-    turn_light(1, 1)
-    turn_activator(1, 0)
+    turn_light(1, animation.stop)
+    run_program(program.stop)
     waiting_loops = thanks_time * 10;
     while(waiting_loops>0)
     do
@@ -109,10 +111,10 @@ update_balance = function()
     balance=balance + hardware:GetBanknotes()
 end
 
-turn_activator = function(rel_num, is_on)
-    hardware:TurnActivator(rel_num, is_on)
+turn_light = function(rel_num, animation_code)
+    hardware:TurnLight(rel_num, animation_code)
 end
 
-turn_light = function(rel_num, is_on)
-    hardware:TurnLight(rel_num, is_on)
+run_program = function(program_num)
+    hardware:TurnProgram(program_num)
 end
