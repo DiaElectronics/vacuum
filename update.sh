@@ -1,10 +1,5 @@
 #!/bin/bash
-
-if [ -f ./firmware.exe ]; then
-  echo "copying firmware..."
-  cp firmware.exe firmware.exe_
-fi
-
-git reset --hard
-git pull
-
+echo "UPDATING..."
+LOGS="$(git pull|grep firmware.exe)"
+echo "LOGS: [""$LOGS""]"
+[ -z "$LOGS" ] || (echo "rebooting" && sleep 30 && sudo reboot)
