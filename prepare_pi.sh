@@ -24,7 +24,7 @@ sudo echo "hdmi_mode=14" >> /boot/config.txt
 echo "cd /home/pi/vacuum" >> /home/pi/run.sh
 echo "./update.sh &" >> /home/pi/run.sh
 echo "sleep 1" >> /home/pi/run.sh
-echo "./firmware.exe_ ./firmware" >> /home/pi/run.sh
+echo "./firmware.exe" >> /home/pi/run.sh
 
 cd /home/pi
 read -p "Enter Card Code : " card_code
